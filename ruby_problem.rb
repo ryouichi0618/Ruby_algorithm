@@ -18,7 +18,7 @@ hile(goal_distanc >= run)
         min_price = price
     end
     if max_price < price
-        max_price = price
+    max_price = price
     end
 
     i += 1
@@ -123,3 +123,35 @@ max = fees.max
 min = fees.min 
 
 puts min.to_s + ' ' + max.to_s
+
+
+
+# 入力された値から母音のみ取り除くプログラムの作成
+
+input_line = gets
+input_line.delete!('a i u e o A I U E O')
+puts input_line
+
+
+
+
+
+# 入力された文字数の縦横比変換プログラム作成
+
+# 入力1でH W Xといったように空白区切りで3つの値を受け取る（高さ、横幅、変更後の横幅）
+#任意の文字を指定された横幅分受け取る、それを高さ分繰り返す
+#受け取った値を変更後の横幅になるように並び替える
+
+
+
+input_line = gets.split.map!(&:to_i)
+height = input_line[0]
+widht = input_line[1]
+after_width = input_line[2]
+
+data = []
+height.times do |i|
+    ipt = gets.chomp
+    data << ipt
+end
+puts data.join.scan(/.{1,#{after_width}}/)
